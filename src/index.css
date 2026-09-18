@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    @apply bg-bg text-ink font-sans;
+  }
+  ::selection {
+    @apply bg-teal text-white;
+  }
+  :focus-visible {
+    outline: 2px solid theme("colors.teal.DEFAULT");
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.path-line {
+  stroke: #e5e2db;
+  stroke-width: 3;
+  fill: none;
+}
+.path-line-active {
+  stroke: #0d7d72;
+  stroke-width: 3;
+  fill: none;
+}
+
+/* Building level-up feedback (Building.jsx) — a quick scale pop on the
+   building sprite plus an expanding gold ring, played once when a topic's
+   level increases from a quiz result. */
+@keyframes buildingPop {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.18);
+  }
+  60% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes ringPulse {
+  0% {
+    transform: scale(0.3);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
