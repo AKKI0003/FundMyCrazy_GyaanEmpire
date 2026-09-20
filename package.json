@@ -1,14 +1,16 @@
 {
   "name": "gyan-empire",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "server": "node server/index.js",
-    "start": "concurrently \"npm:server\" \"npm:dev\""
+    "start": "concurrently \"npm:server\" \"npm:dev\"",
+    "test:war": "node scripts/test-war.mjs",
+    "server:offline": "node scripts/offline-questions-server.mjs"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",

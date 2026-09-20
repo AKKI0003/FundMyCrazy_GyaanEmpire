@@ -6,6 +6,7 @@ export default {
     extend: {
       fontFamily: {
         display: ["Sora", "sans-serif"],
+        game: ["Lilita One", "Sora", "sans-serif"],
         sans: ["Inter", "sans-serif"],
       },
       colors: {
@@ -17,6 +18,10 @@ export default {
         teal: { DEFAULT: "#0D7D72", dark: "#095D55" },
         amber: { DEFAULT: "#C77D22" },
         danger: { DEFAULT: "#B23A2E" },
+        night: { DEFAULT: "#153840", deep: "#0d2226", light: "#24505a" },
+        gold: { DEFAULT: "#e6b94f", deep: "#9a6a1c", soft: "#f6e4a8" },
+        parch: { DEFAULT: "#f7edd3", edge: "#e6d6ab", ink: "#3a2a12" },
+        gem: { DEFAULT: "#39c5d3" },
       },
       borderRadius: {
         lg: "0.75rem",

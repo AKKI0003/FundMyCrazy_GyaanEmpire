@@ -1,11 +1,11 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Upload, Sparkles } from "lucide-react";
+import { Upload, Sparkles, ArrowLeft } from "lucide-react";
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
 import { Input, Textarea } from "./ui/input";
 
-export function SetupScreen({ onGenerate, loading, error }) {
+export function SetupScreen({ onGenerate, loading, error, onCancel }) {
   const [subject, setSubject] = useState("");
   const [text, setText] = useState("");
   const [imageFile, setImageFile] = useState(null);
@@ -15,13 +15,23 @@ export function SetupScreen({ onGenerate, loading, error }) {
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center px-6 py-16"
+      className="min-h-screen flex items-center justify-center px-6 py-16 relative"
       style={{
         backgroundImage: "url(/game-art/sky-background.png)",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
+      {onCancel && (
+        <button
+          onClick={onCancel}
+          disabled={loading}
+          className="absolute top-6 left-6 flex items-center gap-1.5 text-sm font-medium text-white bg-black/20 hover:bg-black/30 rounded-full px-3.5 py-1.5 backdrop-blur-sm transition-colors disabled:opacity-50"
+        >
+          <ArrowLeft size={14} />
+          Back to my base
+        </button>
+      )}
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
@@ -34,11 +44,11 @@ export function SetupScreen({ onGenerate, loading, error }) {
             Gyan Empire
           </div>
           <h1 className="font-display text-4xl font-bold leading-tight mb-3">
-            Turn your syllabus into an empire you build.
+            {onCancel ? "Add another subject." : "Turn your syllabus into an empire you build."}
           </h1>
           <p className="text-muted text-base leading-relaxed max-w-md mx-auto">
-            Upload a chapter or paste your notes. Every topic becomes a building — study it, and it grows.
-            Ignore it, and it falls behind.
+            Upload a chapter or paste your notes. Each subject becomes its own building on your island — study it and it
+            grows. Ignore it, and it becomes the weak spot other clans raid.
           </p>
         </div>
 
